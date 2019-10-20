@@ -1,6 +1,5 @@
 package sk.itsovy.Artem.Test.Field_1;
 
-import javax.crypto.spec.PSource;
 import java.util.Scanner;
 
 public class Main {
@@ -64,8 +63,8 @@ public class Main {
          */
         Scanner in = new Scanner(System.in);
         System.out.println("------------------------------");
-        int amount = 0, month;
-        double value, interest;
+        int month;
+        double value, interest, amount;
         Bank national = new Bank("National");
         System.out.println("Welcome to the National Bank of Europe Union, sir. Please, choose the option: ");
         System.out.println("1 - Make the exchange of your money");
@@ -74,48 +73,48 @@ public class Main {
         int opinion = in.nextInt();
         switch (opinion) {
             case 1: {
-                System.out.println("Please, choose the currency: ");
-                System.out.println("1 - EUR to TRY");
-                System.out.println("2 - EUR to HUF");
-                System.out.println("3 - EUR to CHF");
-                System.out.println("4 - EUR to HRK");
-                System.out.println("5 - EUR to GBP");
-                System.out.println("0 - Exit");
-                int choice = in.nextInt();
-                System.out.println("Please, input the amount of money you want to exchange: ");
-                switch (choice) {
-                    case 1: {
-                        amount = in.nextInt();
-                        System.out.println("Your exchange value is: " + national.convert(amount, "TRY") + " in TRY! Thank you for using The National exchange system. Have a nice day.");
-                        break;
-                    }
-                    case 2: {
-                        amount = in.nextInt();
-                        System.out.println("Your exchange value is: " + national.convert(amount, "HUF") + " in HUF! Thank you for using The National exchange system. Have a nice day.");
-                        break;
-                    }
-                    case 3: {
-                        amount = in.nextInt();
-                        System.out.println("Your exchange value is: " + national.convert(amount, "CHF") + " in CHF! Thank you for using The National exchange system. Have a nice day.");
-                        break;
-                    }
-                    case 4: {
-                        amount = in.nextInt();
-                        System.out.println("Your exchange value is: " + national.convert(amount, "HRK") + " in HRK! Thank you for using The National exchange system. Have a nice day.");
-                        break;
-                    }
-                    case 5: {
-                        amount = in.nextInt();
-                        System.out.println("Your exchange value is: " + national.convert(amount, "GBP") + " in GBP! Thank you for using The National exchange system. Have a nice day.");
-                        break;
-                    }
-                    case 0: {
-                        System.out.println("See you soon and have a nice day.");
-                        break;
-                    }
-                    default: {
-                        System.out.println("We are sorry, sir, but choose wrong option. We waited for 0, 1, 2, 3, 4 or 5, but got: " + choice + ". Let's try out one more time!");
-                        break;
+                System.out.println("Please, input the amount of euros you want to exchange: ");
+                amount = in.nextDouble();
+                if (national.checkEUR(amount) == -1) {
+                    break;
+                } else {
+                    System.out.println("Please, choose the currency: ");
+                    System.out.println("1 - EUR to TRY");
+                    System.out.println("2 - EUR to HUF");
+                    System.out.println("3 - EUR to CHF");
+                    System.out.println("4 - EUR to HRK");
+                    System.out.println("5 - EUR to GBP");
+                    System.out.println("0 - Exit");
+                    int choice = in.nextInt();
+                    switch (choice) {
+                        case 1: {
+                            System.out.println("Your exchange value is: " + national.convert(amount, "TRY") + " in TRY! Thank you for using The National exchange system. Have a nice day.");
+                            break;
+                        }
+                        case 2: {
+                            System.out.println("Your exchange value is: " + national.convert(amount, "HUF") + " in HUF! Thank you for using The National exchange system. Have a nice day.");
+                            break;
+                        }
+                        case 3: {
+                            System.out.println("Your exchange value is: " + national.convert(amount, "CHF") + " in CHF! Thank you for using The National exchange system. Have a nice day.");
+                            break;
+                        }
+                        case 4: {
+                            System.out.println("Your exchange value is: " + national.convert(amount, "HRK") + " in HRK! Thank you for using The National exchange system. Have a nice day.");
+                            break;
+                        }
+                        case 5: {
+                            System.out.println("Your exchange value is: " + national.convert(amount, "GBP") + " in GBP! Thank you for using The National exchange system. Have a nice day.");
+                            break;
+                        }
+                        case 0: {
+                            System.out.println("See you soon and have a nice day.");
+                            break;
+                        }
+                        default: {
+                            System.out.println("We are sorry, sir, but choose wrong option. We waited for 0, 1, 2, 3, 4 or 5, but got: " + choice + ". Let's try out one more time!");
+                            break;
+                        }
                     }
                 }
                 break;
@@ -125,7 +124,7 @@ public class Main {
                 value = in.nextInt();
                 interest = in.nextDouble();
                 month = in.nextInt();
-                if (national.checker(value, interest, month) == -1) {
+                if (national.checkLoan(value, interest, month) == -1) {
                     break;
                 } else {
                     System.out.println("You will need to pay - " + national.loan(value, interest, month) + " eur in one month.");
