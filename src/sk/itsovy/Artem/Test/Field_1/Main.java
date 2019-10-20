@@ -137,7 +137,7 @@ public class Main {
                 break;
             }
             default: {
-                System.out.println("We are sorry, sir, but choose wrong option. We waited for 0, 1 or 2, but got: " + opinion + ". Let's try out one more time!");
+                System.out.println("We are sorry, sir, but you have chosen the wrong option. We waited for 0, 1 or 2, but got: " + opinion + ". Let's try out one more time!");
                 break;
             }
         }
