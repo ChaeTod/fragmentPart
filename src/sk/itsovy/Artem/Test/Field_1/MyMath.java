@@ -37,7 +37,7 @@ public class MyMath {
     }
  */
 
-    //polimorfism
+    //polymorphism
     public FragmentClass nul(int value, FragmentClass a){
         FragmentClass result = null;
         result = new FragmentClass(a.getNumerator() * value, a.getDenominator() * value);
