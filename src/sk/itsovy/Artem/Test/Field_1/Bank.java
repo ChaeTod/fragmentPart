@@ -72,7 +72,7 @@ public class Bank {
         }
     }
 
-    public /*static*/ double loan(double value, double interest, int months) {
+    public static double loan(double value, double interest, int months) {
         double state = ((interest / 100) / 12);
         return (double) Math.round((value * state) / (1 - (Math.pow((1 + state), -months))) * 100) / 100;
     }
