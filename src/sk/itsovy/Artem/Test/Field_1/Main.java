@@ -141,5 +141,9 @@ public class Main {
                 break;
             }
         }
+        MyMath num = new MyMath();
+        //num.reverseNum(350);
+        //System.out.println("The reversed numb is: " +num.reverseNumber(350));
+        MyMath.random4();
     }
 }
