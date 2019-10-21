@@ -127,7 +127,7 @@ public class Main {
                 if (national.checkLoan(value, interest, month) == -1) {
                     break;
                 } else {
-                    System.out.println("You will need to pay - " + national.loan(value, interest, month) + " eur in one month.");
+                    System.out.println("You will need to pay - " + Bank.loan(value, interest, month) + " eur in one month.");
                 }
                 System.out.println("Have a nice day!");
                 break;
